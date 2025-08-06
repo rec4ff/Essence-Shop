@@ -1,0 +1,21 @@
+{
+  "name": "essence-shop",
+  "version": "1.0.0",
+  "description": "E-commerce de perfumes arabes, diseñador y nicho.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"No hay pruebas configuradas\""
+  },
+  "keywords": ["perfumes", "mercadopago", "mongo", "express"],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.3.0",
+    "mercadopago": "^2.1.4",
+    "cors": "^2.8.5",
+    "body-parser": "^1.20.2"
+  }
+}
