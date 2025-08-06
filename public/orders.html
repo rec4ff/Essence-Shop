@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestion de Pedidos</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Pedidos</h1>
+  <section id="orders"></section>
+  <script>
+  document.addEventListener('DOMContentLoaded', async () => {
+    const container = document.getElementById('orders');
+    try {
+      const res = await fetch('/api/orders');
+      const orders = await res.json();
+      orders.forEach(o => {
+        const div = document.createElement('div');
+        div.className = 'order';
+        const items = o.products.map(p => `${p.productId.name} x${p.quantity}`).join(', ');
+        div.innerHTML = `<p><strong>ID:</strong> ${o._id}</p><p>${items}</p><p>${o.status}</p>`;
+        container.appendChild(div);
+      });
+    } catch (err) {
+      container.innerHTML = '<p>Error cargando pedidos</p>';
+    }
+  });
+  </script>
+</body>
+</html>
